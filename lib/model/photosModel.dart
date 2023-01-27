@@ -6,6 +6,6 @@ class PhotosModel{
 
 
   static PhotosModel fromApi2App(Map<String, dynamic> photoMap){
-    return PhotosModel(imgSrc: photoMap['src'], PhotoName: photoMap['Photographer']['portrait']);
+    return PhotosModel(imgSrc: photoMap['photographer'], PhotoName: (photoMap['src'])['portrait']);
   }
 }

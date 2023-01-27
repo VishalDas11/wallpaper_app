@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wallpaper_app/controller/apiOper.dart';
 import 'package:wallpaper_app/views/widgets/catBlock.dart';
 
+import '../../model/photosModel.dart';
 import '../widgets/customAppBar.dart';
 import '../widgets/searchBar.dart';
 
@@ -13,10 +14,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  late List<PhotosModel> trendingWallList;
+
+  getTrendingWallpaper()async{
+     trendingWallList = await ApiOperation.getTrendingWallpapers();
+     setState(() {
+
+     });
+  }
+
   @override
   void initState(){
     super.initState();
-    ApiOperation.getTrendingWallpapers();
+    getTrendingWallpaper();
   }
   @override
   Widget build(BuildContext context) {
